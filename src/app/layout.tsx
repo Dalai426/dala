@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Head from "./head";
+import AdminLayout from "@/layouts/AdminLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +16,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Head/>
+      <body className={inter.className}>
+      <AdminLayout>{children}</AdminLayout>
+      </body>
     </html>
   );
 }
